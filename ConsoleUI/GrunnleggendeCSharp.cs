@@ -8,11 +8,15 @@ namespace SkoleKonsoll
 {
     internal class GrunnleggendeCSharp
     {
-        public static double BasicAddition(double a, double b)
-        {
-            double sum = a + b;
-            return sum;
+        //call each method from Program.cs, account for parameters/no parameters along with the type
 
+        //EXAMPLE:
+        // Console.WriteLine("Hei, hva heter du?");
+        // string userInput = Console.ReadLine();
+        // string response = GrunnleggendeCSharp.HelloHi(userInput);
+        public static void HelloHi(string name)
+        {
+            Console.WriteLine($"Hei og velkommen {name}!");
         }
 
         public static decimal AddDifferentNumberTypes()
@@ -24,6 +28,17 @@ namespace SkoleKonsoll
             return sum;
         }
 
+        public static double BasicAddition(double a, double b)
+        {
+            double sum = a + b;
+            return sum;
+        }
+
+        public static void PleaseDontPrintAnything()
+        {
+            Console.WriteLine("Denne metoden returnerer ingenting.");
+        }
+
         public static bool EqualChecker(double a, double b)
         {
             if (a == b)
@@ -33,14 +48,26 @@ namespace SkoleKonsoll
             return false;
         }
 
-        public static void PleaseDontPrintAnything()
+        public static double SumOrProduct(double a, double b)
         {
-            Console.WriteLine("Denne metoden returnerer ingenting.");
+            if (a != b)
+            {
+                return a + b;
+            }
+            else
+            {
+                return a * b;
+            }
         }
 
-        public static void HelloHi(string name)
+        public static bool ThirtyOrNot(int a, int b)
         {
-            Console.WriteLine($"Hei og velkommen {name}!");
+            if ((a + b) == 30 || (a == 30) || (b == 30))
+            {
+                return true;
+            }
+            return false;
         }
+
     }
 }
