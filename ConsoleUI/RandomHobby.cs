@@ -13,29 +13,29 @@ namespace ConsoleUI
             Console.Write("Who wishes for a new hobby: ");
             string userName = Console.ReadLine();
             
-            GenerateASingleHobby(userName);
+            HobbyPicker(userName);
         }
 
-        static void GenerateASingleHobby(string name)
+        static void HobbyPicker(string name)
         {
             Console.Clear();
 
-            Random generateHobby = new Random();
-            int randomlySelected = generateHobby.Next(0, 4);
+            Random hobbyNumbers = new Random();
+            int surpriseNumber = hobbyNumbers.Next(0, 4);
 
-            if (randomlySelected == 0)
+            if (surpriseNumber == 0)
             {
                 Console.WriteLine($"{name} is a photographer. Beaches are off limits, by the way.");
             }
-            else if (randomlySelected == 1)
+            else if (surpriseNumber == 1)
             {
                 Console.WriteLine($"Ah, the great outdoors. Perfect for climbers like {name}...");
             }
-            else if (randomlySelected == 2)
+            else if (surpriseNumber == 2)
             {
                 Console.WriteLine($"You're not really a hobby astronaut, {name}. Wait, ARE you?");
             }
-            else if (randomlySelected == 3)
+            else if (surpriseNumber == 3)
             {
                 Console.WriteLine($"The fish enjoy their natural habitat. Right until {name} comes along with " +
                     $"god damned fishing gear, that is.");
