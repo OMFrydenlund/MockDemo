@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrocodileGame.cs" />
     <Compile Include="GrunnleggendeCSharp.cs" />
+    <Compile Include="Loops.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomHobby.cs" />

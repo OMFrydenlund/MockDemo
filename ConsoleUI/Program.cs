@@ -11,7 +11,7 @@ namespace SkoleKonsoll
     {
         static void Main(string[] args)
         {
-            Switch.DayByUserInput();
+            CrocodileGame.StartUp();
             Console.ReadLine();
         }
 
