@@ -8,58 +8,50 @@ namespace ConsoleUI
 {
     internal class CrocodileGame
     {
-        public static void StartUp()
+        private static Random randomNum = new Random();
+        public static void Game()
         {
-            Console.WriteLine("Welcome to the Crocodile Game!" +
-                "\nTo answer, simply type < > or =, or anything else to exit the game." +
-                "\n\nPress any button to continue...");
-            Console.ReadLine();
-            Game();
-        }
-
-        static void Game()
-        {
-            //consider instantiating Random here with duplicate use, over calling a unique method
-            Console.Clear();
-
-            int roundsCounter = 1;
             int points = 0;
+            int rounds = 0;
 
-            int firstNumber = GenerateNumber();
-            int secondNumber = GenerateNumber();
+            int firstNum = GetNumber();
+            int secondNum = GetNumber();
 
-            Console.WriteLine($"{firstNumber} _ {secondNumber}");            
-            Console.Write("Answer: ");
+            Console.Write($"Is it <, > or =?\n{firstNum} _ {secondNum}\n");
             string userInput = Console.ReadLine();
 
-            //bool goodAnswer = CheckAnswer(firstNumber, secondNumber, userInput);
-
-        }
-
-
-        static bool CheckAnswer(int firstNumber, int secondNumber, string userInput)
-        {
-            if ((firstNumber < secondNumber) && userInput == "<")
+            string correctAnswer = AnswerCheck(firstNum, secondNum);
+            if (userInput == correctAnswer)
             {
-                return true;
+                Console.WriteLine($"That's correct! The answer is {correctAnswer}.");
             }
-            else if ((firstNumber > secondNumber) && (userInput == ">"))
-            {
-                return true;
-            }
-            else if ((firstNumber < secondNumber) && userInput == "=")
-            {
-                return true;
-            }
-            return false;
             
         }
 
-        static int GenerateNumber()
+        public static int GetNumber()
+        {           
+            int a = randomNum.Next(1, 11);
+            return a;
+        }
+
+        static string AnswerCheck(int numA, int numB)
         {
-            Random randomNumber = new Random();
-            int number = randomNumber.Next(1, 11);
-            return number;
+            if (numA > numB)
+            {
+                return ">";
+            }
+            else if (numA < numB)
+            {
+                return "<";
+            }
+            else if (numA == numB)
+            {
+                return "=";
+            }
+            else
+            {
+                return "exitPrint";
+            }
         }
     }
 }
