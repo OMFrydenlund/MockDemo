@@ -8,26 +8,26 @@ namespace ConsoleUI
 {
     internal class CrocodileGame
     {
-        private static int _pointCounter;
-        private static int _roundCounter;
-        private static string _userInput;
+        private static int PointCounter;
+        private static int RoundCounter;
+        private static string UserInput;
 
         public static void Game()
         {
             
             Console.Clear();
             Random randomNum = new Random();
-            _roundCounter++;
+            RoundCounter++;
 
             int firstNum = randomNum.Next(1, 11);
             int secondNum = randomNum.Next(1, 11);
 
-            Console.WriteLine($"Round: {_roundCounter}" +
-                $"\nPoints: {_pointCounter}");
+            Console.WriteLine($"Round: {RoundCounter}" +
+                $"\nPoints: {PointCounter}");
             Console.Write($"\n\nIs it <, > or =?\n{firstNum} _ {secondNum}\n");
-            _userInput = Console.ReadLine();
+            UserInput = Console.ReadLine();
 
-            if (_userInput != "<" && _userInput != ">" && _userInput != "=")
+            if (UserInput != "<" && UserInput != ">" && UserInput != "=")
             {
                 Console.WriteLine("Exiting game...");
                 Console.ReadLine();
@@ -59,17 +59,17 @@ namespace ConsoleUI
         static void RespondToCheck(int leftNumber, int rightNumber)
         {
             string correctAnswer = AnswerCheck(leftNumber, rightNumber);
-            if (_userInput == correctAnswer)
+            if (UserInput == correctAnswer)
             {
-                _pointCounter++;
+                PointCounter++;
                 Console.WriteLine($"That's correct! The answer is {correctAnswer}.");
                 Console.ReadLine();
                 Game();
             }
-            else if (_userInput != correctAnswer)
+            else if (UserInput != correctAnswer)
             {
-                _pointCounter--;
-                Console.WriteLine($"Unfortunately it was not {_userInput}, but {correctAnswer}.");
+                PointCounter--;
+                Console.WriteLine($"Unfortunately it was not {UserInput}, but {correctAnswer}.");
                 Console.ReadLine();
                 Game();
             }

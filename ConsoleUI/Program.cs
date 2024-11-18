@@ -11,8 +11,7 @@ namespace SkoleKonsoll
     {
         static void Main(string[] args)
         {
-            TextManipulation.PlayWithText();
-            Console.ReadLine();           
+            NumberGuess.GuessTheNumber();        
         }
 
     }
