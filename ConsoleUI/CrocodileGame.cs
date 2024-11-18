@@ -8,31 +8,33 @@ namespace ConsoleUI
 {
     internal class CrocodileGame
     {
-        private static Random randomNum = new Random();
+        private static int _pointCounter;
+        private static int _roundCounter;
+        private static string _userInput;
+
         public static void Game()
         {
-            int points = 0;
-            int rounds = 0;
-
-            int firstNum = GetNumber();
-            int secondNum = GetNumber();
-
-            Console.Write($"Is it <, > or =?\n{firstNum} _ {secondNum}\n");
-            string userInput = Console.ReadLine();
-
-            string correctAnswer = AnswerCheck(firstNum, secondNum);
-            if (userInput == correctAnswer)
-            {
-                Console.WriteLine($"That's correct! The answer is {correctAnswer}.");
-            }
             
-        }
+            Console.Clear();
+            Random randomNum = new Random();
+            _roundCounter++;
 
-        public static int GetNumber()
-        {           
-            int a = randomNum.Next(1, 11);
-            return a;
-        }
+            int firstNum = randomNum.Next(1, 11);
+            int secondNum = randomNum.Next(1, 11);
+
+            Console.WriteLine($"Round: {_roundCounter}" +
+                $"\nPoints: {_pointCounter}");
+            Console.Write($"\n\nIs it <, > or =?\n{firstNum} _ {secondNum}\n");
+            _userInput = Console.ReadLine();
+
+            if (_userInput != "<" && _userInput != ">" && _userInput != "=")
+            {
+                Console.WriteLine("Exiting game...");
+                Console.ReadLine();
+                Environment.Exit(0);
+            }
+            RespondToCheck(firstNum, secondNum);
+        }          
 
         static string AnswerCheck(int numA, int numB)
         {
@@ -51,6 +53,25 @@ namespace ConsoleUI
             else
             {
                 return "exitPrint";
+            }
+        }
+        
+        static void RespondToCheck(int leftNumber, int rightNumber)
+        {
+            string correctAnswer = AnswerCheck(leftNumber, rightNumber);
+            if (_userInput == correctAnswer)
+            {
+                _pointCounter++;
+                Console.WriteLine($"That's correct! The answer is {correctAnswer}.");
+                Console.ReadLine();
+                Game();
+            }
+            else if (_userInput != correctAnswer)
+            {
+                _pointCounter--;
+                Console.WriteLine($"Unfortunately it was not {_userInput}, but {correctAnswer}.");
+                Console.ReadLine();
+                Game();
             }
         }
     }

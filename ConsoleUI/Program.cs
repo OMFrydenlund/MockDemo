@@ -10,7 +10,7 @@ namespace SkoleKonsoll
     internal class Program
     {
         static void Main(string[] args)
-        {           
+        {
             CrocodileGame.Game();
             Console.ReadLine();
         }
