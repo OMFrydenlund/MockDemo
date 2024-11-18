@@ -11,8 +11,8 @@ namespace SkoleKonsoll
     {
         static void Main(string[] args)
         {
-            CrocodileGame.Game();
-            Console.ReadLine();
+            TextManipulation.PlayWithText();
+            Console.ReadLine();           
         }
 
     }
