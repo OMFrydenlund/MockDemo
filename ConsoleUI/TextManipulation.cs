@@ -22,11 +22,11 @@ namespace ConsoleUI
         {
             if (userChoice == 1)
             {
-                StartReversion();
+                SentenceReversal();
             }
             else if (userChoice == 2)
             {
-                StartLetterConversion();
+                SentenceConversion();
             }
             else
             {
@@ -36,7 +36,7 @@ namespace ConsoleUI
             }
         }
 
-        static void StartReversion()
+        static void SentenceReversal()
         {
             Console.Clear();
             Console.Write("What word/sentence would you like to reverse: ");
@@ -44,7 +44,7 @@ namespace ConsoleUI
             ReverseText(userStringInput);
         }
 
-        static void StartLetterConversion()
+        static void SentenceConversion()
         {
             Console.Clear();
             Console.Write("Write something that needs to replace e's with a's: ");
@@ -66,12 +66,13 @@ namespace ConsoleUI
         static void ReplaceLetters(string sentence)
         {
             //small cheat converting string into all lower case
-            string formattedSentence = sentence.ToLower();
-            foreach (char c in formattedSentence)
+            //revisit to add lower/upper case differentiation
+            string sentenceToFormat = sentence.ToLower();
+            foreach (char c in sentenceToFormat)
             {
-                if (c == 'a')
+                if (c == 'e')
                 {
-                    Console.Write('e');
+                    Console.Write('a');
                 }
                 else
                 {

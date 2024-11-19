@@ -12,7 +12,8 @@ namespace ConsoleUI
         private static int UserGuess;
 
         public static void GuessTheNumber()
-        {            
+        {
+            Console.Clear();
             Random newRandomInstance = new Random();
             CorrectNumber = newRandomInstance.Next(1, 100);
             Console.Write("What's the number: ");
@@ -21,6 +22,7 @@ namespace ConsoleUI
             int validatedNumber = ValidateNumber(UserGuess);
 
             LowOrHighCheck(validatedNumber);
+            PlayAagain();
 
         }
 
@@ -28,7 +30,7 @@ namespace ConsoleUI
         {
             if (userGuess < 0 || userGuess > 100)
             {
-                Console.WriteLine("Not a valid number. Guess again...");
+                Console.WriteLine("Not a valid number. Pick one between 1 and 100.");
                 int.TryParse(Console.ReadLine(), out userGuess);
                 ValidateNumber(userGuess);
             }
@@ -37,19 +39,40 @@ namespace ConsoleUI
 
         static void LowOrHighCheck(int validatedNumber)
         {
+            int newGuess;
             if (validatedNumber < CorrectNumber)
             {
                 Console.WriteLine("GO HIGHER");
+                int.TryParse(Console.ReadLine(), out newGuess);
+                LowOrHighCheck(newGuess);
             }
             else if (validatedNumber > CorrectNumber)
             {
                 Console.WriteLine("go lower");
+                int.TryParse(Console.ReadLine(), out newGuess);
+                LowOrHighCheck(newGuess);
             }
             else
             {
-                Console.WriteLine($"Correct! The number was indeed {CorrectNumber}." +
-                    $"\nWould you like to play again?\n1) Yes\n2) No");
-                //implement code for replayability
+                Console.WriteLine($"Correct! The number was indeed {CorrectNumber}.");
+                Console.ReadLine();
+            }
+        }
+
+        static void PlayAagain()
+        {
+            Console.Clear();
+            Console.WriteLine($"Would you like to play again?\n1) Yes\n2) No");
+            int userInput = int.Parse(Console.ReadLine());
+
+            switch (userInput)
+            {
+                case 1: GuessTheNumber();
+                    break;
+                case 2: Environment.Exit(0);
+                    break;
+                default: Console.WriteLine("Not a valid choice");
+                    break;
             }
         }
     }
