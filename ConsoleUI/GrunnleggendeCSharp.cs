@@ -8,7 +8,7 @@ namespace SkoleKonsoll
 {
     internal class GrunnleggendeCSharp
     {
-        //call each method from Program.cs, account for parameters/no parameters along with the type
+        //account for parameters/no parameters along with the type when calling in Main()
 
         //EXAMPLE:
         // Console.WriteLine("Hei, hva heter du?");
