@@ -12,7 +12,10 @@ namespace SkoleKonsoll
         static void Main(string[] args)
         {
             // call methods from their respective classes to test
-            // for some to function as intended, a Console.ReadLine is required in Main()           
+            // for some to function as intended, a Console.ReadLine is required in Main()
+
+            NumberGuess.GuessTheNumber();
+            Console.ReadLine();
         }
     }
 }

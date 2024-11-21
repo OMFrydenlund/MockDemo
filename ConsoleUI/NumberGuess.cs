@@ -16,10 +16,18 @@ namespace ConsoleUI
             Console.Clear();
             Random newRandomInstance = new Random();
             CorrectNumber = newRandomInstance.Next(1, 100);
-            Console.Write("What's the number: ");
 
-            int.TryParse(Console.ReadLine(), out UserGuess);
-            int validatedNumber = ValidateNumber(UserGuess);
+            bool isNumber = false;
+            int validatedNumber = 0;
+
+            while (isNumber == false)
+            {
+                //nitpick clearing console to ask questions in a loop
+                Console.Write("What's the number: ");
+                isNumber = int.TryParse(Console.ReadLine(), out UserGuess);
+                validatedNumber = ValidateNumber(UserGuess);
+            }
+
 
             LowOrHighCheck(validatedNumber);
             PlayAagain();
@@ -32,9 +40,9 @@ namespace ConsoleUI
             {
                 Console.WriteLine("Not a valid number. Pick one between 1 and 100.");
                 int.TryParse(Console.ReadLine(), out userGuess);
-                ValidateNumber(userGuess);
+                ValidateNumber(userGuess);                
             }
-            //hvis brukeren taster feil generelt? ALEKSANDER
+            
             return userGuess;
         }
 
