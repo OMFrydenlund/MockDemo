@@ -34,6 +34,7 @@ namespace ConsoleUI
                 int.TryParse(Console.ReadLine(), out userGuess);
                 ValidateNumber(userGuess);
             }
+            //hvis brukeren taster feil generelt? ALEKSANDER
             return userGuess;
         }
 
