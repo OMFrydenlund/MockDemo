@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleUI
+namespace Looping
 {
-    internal class Loops
+    internal class LooperClass
     {
         public static void TerjeErKul()
         {
@@ -37,6 +37,5 @@ namespace ConsoleUI
                 Console.ReadLine();
             }
         }
-
     }
 }

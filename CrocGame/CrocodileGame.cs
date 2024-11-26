@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleUI
+namespace CrocGame
 {
     internal class CrocodileGame
     {
-        private static int PointCounter;
-        private static int RoundCounter;
-        private static string UserInput;
+        public static int PointCounter { get; private set; }
+        public static int RoundCounter { get; private set; }
+        public static string UserInput { get; private set; }
 
         public static void Game()
         {
-            
+
             Console.Clear();
             Random randomNum = new Random();
             RoundCounter++;
@@ -34,7 +34,7 @@ namespace ConsoleUI
                 Environment.Exit(0);
             }
             RespondToCheck(firstNum, secondNum);
-        }          
+        }
 
         static string AnswerCheck(int numA, int numB)
         {
@@ -55,7 +55,7 @@ namespace ConsoleUI
                 return "exitPrint";
             }
         }
-        
+
         static void RespondToCheck(int leftNumber, int rightNumber)
         {
             string correctAnswer = AnswerCheck(leftNumber, rightNumber);

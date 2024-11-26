@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleUI
+namespace TextManipulator
 {
-    internal class TextManipulation
+    internal class TextManipulatorClass
     {
         public static void PlayWithText()
         {
@@ -17,7 +16,7 @@ namespace ConsoleUI
 
             ChoiceCheck(userChoice);
         }
-        
+
         static void ChoiceCheck(int userChoice)
         {
             if (userChoice == 1)
@@ -60,7 +59,7 @@ namespace ConsoleUI
             {
                 Console.Write(sentence[i]);
             }
-            
+
         }
 
         static void ReplaceLetters(string sentence)

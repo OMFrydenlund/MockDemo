@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleUI
+namespace HobbyGenerate
 {
     internal class RandomHobby
     {
         public static void HobbyGenerator()
-        {           
+        {
             Console.Write("Who wishes for a new hobby: ");
             string userName = Console.ReadLine();
-            
+
             HobbyPicker(userName);
         }
 

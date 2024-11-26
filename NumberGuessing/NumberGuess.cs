@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleUI
+namespace NumberGuessing
 {
     internal class NumberGuess
     {
@@ -40,9 +40,9 @@ namespace ConsoleUI
             {
                 Console.WriteLine("Not a valid number. Pick one between 1 and 100.");
                 int.TryParse(Console.ReadLine(), out userGuess);
-                ValidateNumber(userGuess);                
+                ValidateNumber(userGuess);
             }
-            
+
             return userGuess;
         }
 
@@ -76,11 +76,14 @@ namespace ConsoleUI
 
             switch (userInput)
             {
-                case 1: GuessTheNumber();
+                case 1:
+                    GuessTheNumber();
                     break;
-                case 2: Environment.Exit(0);
+                case 2:
+                    Environment.Exit(0);
                     break;
-                default: Console.WriteLine("Not a valid choice");
+                default:
+                    Console.WriteLine("Not a valid choice");
                     break;
             }
         }

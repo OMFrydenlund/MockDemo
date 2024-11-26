@@ -4,16 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SkoleKonsoll
+namespace GrunnleggendeCSharp
 {
-    internal class GrunnleggendeCSharp
+    internal class CSharp
     {
-        //account for parameters/no parameters along with the type when calling in Main()
-
-        //EXAMPLE:
-        // Console.WriteLine("Hei, hva heter du?");
-        // string userInput = Console.ReadLine();
-        // string response = GrunnleggendeCSharp.HelloHi(userInput);
         public static void HelloHi(string name)
         {
             Console.WriteLine($"Hei og velkommen {name}!");
@@ -34,7 +28,7 @@ namespace SkoleKonsoll
             return sum;
         }
 
-        public static void PleaseDontPrintAnything()
+        public static void DontPrintAnything()
         {
             Console.WriteLine("Denne metoden returnerer ingenting.");
         }
@@ -68,6 +62,5 @@ namespace SkoleKonsoll
             }
             return false;
         }
-
     }
 }
