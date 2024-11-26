@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Switching", "Switching\Swit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextManipulator", "TextManipulator\TextManipulator.csproj", "{E9B9245E-B5E4-4421-B6F8-68DDA8D9CA17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentAdministrering", "StudentAdministrering\StudentAdministrering.csproj", "{33F88510-BC32-40D1-80FE-D504255E6827}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{E9B9245E-B5E4-4421-B6F8-68DDA8D9CA17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9B9245E-B5E4-4421-B6F8-68DDA8D9CA17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9B9245E-B5E4-4421-B6F8-68DDA8D9CA17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33F88510-BC32-40D1-80FE-D504255E6827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33F88510-BC32-40D1-80FE-D504255E6827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33F88510-BC32-40D1-80FE-D504255E6827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33F88510-BC32-40D1-80FE-D504255E6827}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
