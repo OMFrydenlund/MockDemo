@@ -11,42 +11,55 @@ namespace StudentAdministrering
         public string _studentNavn { get; private set; }
         public int _studentAlder { get; private set; }
         public string _studieRetning { get; private set; }
-        public int _studentID { get; set; }
+        public int _studentID { get; private set; }
 
-        public string SpørOmNavn()
+        public Student()
+        {
+            
+        }
+
+        public Student(string studentNavn, int studentAlder, string studieRetning, int studentID)
+        {
+            _studentNavn = studentNavn;
+            _studentAlder = studentAlder;
+            _studieRetning = studieRetning;
+            _studentID = studentID;            
+        }
+
+        public void SpørOmNavn()
         {
             Console.Clear();
             Console.Write("Hva heter studenten? ");
             string navnInput = Console.ReadLine();
-            return navnInput;
+            _studentNavn = navnInput;
         }
 
-        public int SpørOmAlder()
+        public void SpørOmAlder()
         {
             Console.Clear();
             Console.Write("Hvor gammel studenten? ");
             int.TryParse(Console.ReadLine(), out int alderInput);
-            return alderInput;
+            _studentAlder = alderInput;
         }
 
-        public string SpørOmStudieRetning()
+        public void SpørOmStudieRetning()
         {
             Console.Clear();
             Console.Write("Hvilken studieretning skal tas opp? ");
             string retningInput = Console.ReadLine();
-            return retningInput;
+            _studieRetning = retningInput;
         }
 
-        public int GiEnID()
+        public void GiEnID()
         {
-            Random random = new Random();
-            int nyID = random.Next(1, 250);
-            return nyID;
+            // generer ny random ID
+            int nyID = 1504962;
+            _studentID = nyID;
         }
         public void SkrivUtInfo()
         {
             Console.Clear();
-            Console.WriteLine($"Navn: {_studentNavn}\nAlder: {_studentAlder}\nProgram: {_studieRetning}\nID nummer: {_studentID}");
+            Console.WriteLine($"Student: {_studentNavn}\nAlder: {_studentAlder}\nStudie: {_studieRetning}\nID: {_studentID}");
         }
     }
 }
