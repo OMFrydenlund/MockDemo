@@ -12,15 +12,36 @@ namespace StudentAdministrering
         public string _fagNavn { get; private set; }
         public int _antallStudiePoeng { get; private set; }
 
-        public Fag(string fagKode, string fagNavn, int antallStudiePoeng)
+        public void FåAllInfo(Fag fag)
         {
-            _fagKode = fagKode;
-            _fagNavn = fagNavn;
-            _antallStudiePoeng = antallStudiePoeng;
+            fag.HentFagKode();
+            fag.HentFagNavn();
+            fag.HentStudiePoeng();
         }
         public void SkrivUtInfo()
         {
             Console.WriteLine($"Fagkode: {_fagKode}\nFag: {_fagNavn}\nStudiepoeng: {_antallStudiePoeng}\n");
         }
+
+        void HentFagKode()
+        {
+            Console.Write("Skriv inn fagkoden: ");
+            string input = Console.ReadLine();
+            _fagKode = input;
+        }
+
+        void HentFagNavn()
+        {
+            Console.Write("Skriv in faget: ");
+            string input = Console.ReadLine();
+            _fagNavn = input;
+        }
+
+        void HentStudiePoeng()
+        {
+            Console.Write("Hvor mange poeng: ");
+            int input = int.Parse(Console.ReadLine());
+            _antallStudiePoeng = input;
+        }       
     }
 }

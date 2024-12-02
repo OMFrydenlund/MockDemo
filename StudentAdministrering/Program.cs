@@ -1,35 +1,10 @@
 ﻿using StudentAdministrering;
+StudentAdminApp app = new StudentAdminApp();
 
-List<Student> studenter = new List<Student>();
+// mangler:
+//      * valg/behandling av eksisterende/ikke-eksisterende karakter objekter
+//      * valg/behandling av gjennomsnittskarakter-beregning
+//      * valg/behandling for totalsum av studiepoeng
 
-Student nyStudent = new Student();
-nyStudent.SpørOmAllStudentInfo(nyStudent);
-studenter.Add(nyStudent);
-
-Student nyStudent2 = new Student();
-nyStudent2.SpørOmAllStudentInfo(nyStudent2);
-studenter.Add(nyStudent2);
-
-Fag norsk = new Fag("No01", "Norsk", 10);
-Fag engelsk = new Fag("En02", "Engelsk", 12);
-
-Karakter norskKarakter = new Karakter(nyStudent, norsk, "B-");
-Karakter engelskKarakter = new Karakter(nyStudent2, engelsk, "A+");
-
-foreach (Student student in studenter)
-{
-    student.SkrivUtInfo();
-}
-
-norsk.SkrivUtInfo();
-engelsk.SkrivUtInfo();
-
-norskKarakter.SkrivUtInfo();
-engelskKarakter.SkrivUtInfo();
-
-
-
-
-
-
-Console.ReadLine();
+// edge cases:
+//      * trenger konsoll beskjed om ikke en spesifikk liste ikke har objekter

@@ -8,9 +8,9 @@ namespace StudentAdministrering
 {
     internal class Karakter
     {
-        public Student _student { get; private set; }
-        public Fag _fag { get; private set; }
-        public string _karakterVerdi { get; private set; }
+        public Student _student { get; set; }
+        public Fag _fag { get; set; }
+        public string _karakterVerdi { get; set; }
 
         public Karakter(Student student, Fag fag, string karakterVerdi)
         {
