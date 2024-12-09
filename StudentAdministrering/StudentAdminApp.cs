@@ -14,12 +14,12 @@ namespace StudentAdministrering
             bool skoleAdministrering = true;
 
             List<Student> studentListe = new List<Student>();
-            List<Fag> fagListe = new List<Fag>();
-            
-            while (skoleAdministrering)
+            List<Fag> fagListe = new List<Fag>() //generell liste for fag innenfor en app-instanse
             {
-                // stemmer valg overens med kalte 
-                // implementer karaktervalg
+                // fyll med fagobjekter
+            };
+            while (skoleAdministrering)
+            {                
                 Console.Clear();
                 Console.Write("Velg handling:\n1. Studentbehandling\n2. Fagbehandling\n3. Avslutt program\n\n");
                 string valgInput = Console.ReadLine();
@@ -57,8 +57,7 @@ namespace StudentAdministrering
                     break;
                 case "2":
                     Console.Clear();
-                    ErDetNoeIListen(studentListe);
-                    //SkrivUtStudentInfo(studentListe);
+                    ErDetNoeIListen(studentListe);                    
                     break;
                 case "3":
                     Console.Clear();
@@ -76,9 +75,9 @@ namespace StudentAdministrering
         {
             Console.Clear();
             Student nyStudent = new Student();
-            nyStudent.FåAllInfo(nyStudent);
+            nyStudent.OpprettStudentInfo(nyStudent);
             studentListe.Add(nyStudent);
-            Console.WriteLine($"{nyStudent._studentNavn} har blitt lagt til som student.\n\n");
+            Console.WriteLine($"\n{nyStudent._studentNavn} har blitt lagt til som student.\n");
             Console.ReadLine();
         }
         void SkrivUtStudentInfo(List<Student> studenter)
@@ -105,8 +104,7 @@ namespace StudentAdministrering
                     break;
                 case "2":
                     Console.Clear();
-                    ErDetNoeIListen(fagListe);
-                    //SkrivUtFagInfo(fagListe);
+                    ErDetNoeIListen(fagListe);                    
                     break;
                 case "3":
                     Console.Clear();
@@ -125,9 +123,9 @@ namespace StudentAdministrering
         {
             Console.Clear();
             Fag nyttFag = new Fag();
-            nyttFag.FåAllInfo(nyttFag);
+            nyttFag.OpprettFagInfo(nyttFag);
             fagListe.Add(nyttFag);
-            Console.WriteLine($"{nyttFag._fagNavn} har blitt lagt til i faglisten.\n\n");
+            Console.WriteLine($"\n{nyttFag._fagNavn} har blitt lagt til i faglisten.\n");
             Console.ReadLine();
         }
 

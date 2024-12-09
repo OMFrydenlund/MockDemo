@@ -12,7 +12,7 @@ namespace StudentAdministrering
         public string _fagNavn { get; private set; }
         public int _antallStudiePoeng { get; private set; }
 
-        public void FåAllInfo(Fag fag)
+        public void OpprettFagInfo(Fag fag)
         {
             fag.HentFagKode();
             fag.HentFagNavn();
@@ -20,7 +20,7 @@ namespace StudentAdministrering
         }
         public void SkrivUtInfo()
         {
-            Console.WriteLine($"Fagkode: {_fagKode}\nFag: {_fagNavn}\nStudiepoeng: {_antallStudiePoeng}\n");
+            Console.WriteLine($"Kode: {_fagKode} {_fagNavn}\n{_antallStudiePoeng} studiepoeng\n");
         }
 
         void HentFagKode()

@@ -1,4 +1,5 @@
 ﻿using StudentAdministrering;
+
 StudentAdminApp app = new StudentAdminApp();
 
 // mangler (iht oppgave + ekstra):
@@ -14,3 +15,8 @@ StudentAdminApp app = new StudentAdminApp();
 //      * beholder listene verdier som er satte inn:
 //          - hvis man taster feil
 //          - skriver ut, for så å legge til nye og skrive ut igjen
+
+
+// MOODLE
+// Opprett en liste av fag og legg til minst tre forskjellige fag
+// Legg til disse fagene i `Student`-objektene som studentene tar
