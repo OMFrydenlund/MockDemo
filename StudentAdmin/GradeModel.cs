@@ -7,25 +7,21 @@ using System.Threading.Tasks;
 namespace StudentAdmin
 {
     internal class GradeModel
-    {
-        /*
-         * Egenskaper: Student (referanse til en Student), Fag (referanse til et Fag), Karakterverdi.
-           Metode: `SkrivUtInfo()` som skriver ut informasjon om karakteren.
-         */
-        public string GradedStudent;
-        public string GradedSubject;
-        int Grade;
-
-        public GradeModel(StudentModel student, SubjectModel subject, int grade)
+    {             
+        public double Grade; 
+        public GradeModel()
         {
-            GradedStudent = student.Name;
-            GradedSubject = subject.SubjectName;
+            
+        }
+        public GradeModel(double grade)
+        {
+            
             Grade = grade;
         }
 
         public void PrintGradeInfo()
         {
-            Console.Write($"{GradedStudent}: {GradedSubject} {Grade}\n");
+            Console.Write($"Grade: {Grade}\n");
         }
     }
 }

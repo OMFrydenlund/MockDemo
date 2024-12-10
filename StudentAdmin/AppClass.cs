@@ -7,14 +7,8 @@ using System.Threading.Tasks;
 namespace StudentAdmin
 {
     internal class AppClass
-    {
-        /*
-         * 1. Opprett minst to instanser av hver klasse (`Student`, `Fag`, `Karakter`).
-           2. Sett verdier for egenskapene.
-           3. Kall `SkrivUtInfo()`-metoden for hver klasse for å skrive ut informasjonen.
-         */
-        List<SubjectModel> ArtSubjects;
-        List<SubjectModel> ScienceSubjects;
+    {       
+        List<StudentModel> Students;
         public AppClass()
         {
             Run();
@@ -22,26 +16,94 @@ namespace StudentAdmin
 
         private void Run()
         {
-            ScienceSubjects = new List<SubjectModel>()
-            {
-                new SubjectModel("Ph10", "Physics", 15),
-                new SubjectModel("Ma35", "Math", 10),
-                new SubjectModel("Co55", "Cooking", 25)
+            Students = new List<StudentModel>()
+            {                
+                new StudentModel("Terry", 19, "Arts", 160),
+                new StudentModel("Elin", 20, "Sciences", 320),
+                new StudentModel("Colin", 17, "Arts", 550)
             };
-            ArtSubjects = new List<SubjectModel>()
-            {
-                new SubjectModel("Col50", "Colors", 12),
-                new SubjectModel("Sha35", "Shadows", 15),
-                new SubjectModel("Ang20", "Angles", 12)
-            };
-
-            StudentModel bob = new StudentModel("Bob", 19, "Arts", 451);
-            StudentModel elin = new StudentModel("Elin", 18, "Sciences", 331);
-
-            //add grades, then print the info
-
+            MainMenu();
+                        
 
             Console.ReadLine();
+        }
+        
+        private void MainMenu()
+        {
+            bool inMainMenu = true;
+            while (inMainMenu)
+            {
+                Console.Clear();
+                Console.Write("What would you like to do: \n1. Add a student\n2. Assign grades\n3. View more information\n");
+                string choice = Console.ReadLine();
+                switch (choice)
+                {
+                    case "1":
+                        AddStudent();
+                        break;
+                    case "2":
+                        //GradeMenu();
+                        break;
+                    case "3":
+                        //View info
+                        break;
+                    case "4":
+                        //Exit app
+                        break;
+                    default:
+                        //Invalid choice
+                        break;
+                }
+            }           
+        }
+
+        private void AddStudent()
+        {
+            Console.Clear();
+            StudentModel newStudent = new StudentModel();
+            newStudent.GetStudentInfo(newStudent);          
+            Students.Add(newStudent);
+        }    
+        
+        private void GradeMenu()
+        {
+            //what is in GM
+            Console.Clear();
+            if (Students.Count == 0)
+            {
+                NoRegisteredStudents();
+            }
+            else
+            {
+                /*
+                 * choose students > choose subjects > call grade assignment method > back to main/previous menu
+                 */
+                Console.Clear();
+                Console.Write("Choose student: ");
+                int counter = 1;
+                foreach (StudentModel s in Students)
+                {
+                    Console.WriteLine($"{counter} {s.Name}");
+                    counter++;
+                }
+            }
+            Console.ReadLine();
+        }
+
+        private void NoRegisteredStudents()
+        {
+            Console.Clear();
+            Console.WriteLine("There are no registered students.");
+            Thread.Sleep(1500);
+            Console.Clear();
+        }
+
+        private void PrintFullStudentList()
+        {
+            foreach (StudentModel s in Students)
+            {
+                s.PrintStudentInfo();
+            }
         }
     }
 }

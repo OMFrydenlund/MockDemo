@@ -11,22 +11,41 @@ namespace StudentAdmin
         /*
          * Egenskaper: Fagkode, Fagnavn, AntallStudiepoeng.
            Metode: `SkrivUtInfo()` som skriver ut informasjon om faget.
+
+           Course > Major > Auxillary subjects
+           
          */
 
         public string SubjectCode;
         public string SubjectName;
         public int SubjectCredits;
-
+        public GradeModel SubjectGrade;
+        public SubjectModel()
+        {
+            
+        }
         public SubjectModel(string subjectCode, string subjectName, int subjectCredits)
         {
             SubjectCode = subjectCode;
             SubjectName = subjectName;
             SubjectCredits = subjectCredits;
+            SubjectGrade = new GradeModel();     
+        }
+
+        public void AssignGrade()
+        {
+            Console.Clear();
+            SubjectGrade = new GradeModel();
+            Console.Write($"Assign a value for this student's {SubjectName} grade: ");
+            SubjectGrade.Grade = Convert.ToDouble(Console.ReadLine());
+            
         }
 
         public void PrintSubjectInfo()
         {
-            Console.Write($"{SubjectCode}: {SubjectName}, {SubjectCredits} points\n\n");
+            //test after instantiating a subject with a given grade
+            Console.Write($"{SubjectCode}: {SubjectName}, {SubjectCredits} points\n");
+            SubjectGrade.PrintGradeInfo();
         }
     }
 }
