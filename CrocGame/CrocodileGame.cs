@@ -35,7 +35,24 @@ namespace CrocGame
             }
             RespondToCheck(firstNum, secondNum);
         }
-
+        static void RespondToCheck(int leftNumber, int rightNumber)
+        {
+            string correctAnswer = AnswerCheck(leftNumber, rightNumber);
+            if (UserInput == correctAnswer)
+            {
+                PointCounter++;
+                Console.WriteLine($"That's correct! The answer is {correctAnswer}.");
+                Console.ReadLine();
+                Game();
+            }
+            else if (UserInput != correctAnswer)
+            {
+                PointCounter--;
+                Console.WriteLine($"Unfortunately it was not {UserInput}, but {correctAnswer}.");
+                Console.ReadLine();
+                Game();
+            }
+        }
         static string AnswerCheck(int numA, int numB)
         {
             if (numA > numB)
@@ -53,25 +70,6 @@ namespace CrocGame
             else
             {
                 return "exitPrint";
-            }
-        }
-
-        static void RespondToCheck(int leftNumber, int rightNumber)
-        {
-            string correctAnswer = AnswerCheck(leftNumber, rightNumber);
-            if (UserInput == correctAnswer)
-            {
-                PointCounter++;
-                Console.WriteLine($"That's correct! The answer is {correctAnswer}.");
-                Console.ReadLine();
-                Game();
-            }
-            else if (UserInput != correctAnswer)
-            {
-                PointCounter--;
-                Console.WriteLine($"Unfortunately it was not {UserInput}, but {correctAnswer}.");
-                Console.ReadLine();
-                Game();
             }
         }
     }
