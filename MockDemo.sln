@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentAdmin", "StudentAdmi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrganTransplant", "OrganTransplant\OrganTransplant.csproj", "{AB8DE012-2D16-442D-ABE7-A273BB93C62B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriendFace", "FriendFace\FriendFace.csproj", "{1C93A7AA-E620-48EE-B436-34EF7EAFE9AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{AB8DE012-2D16-442D-ABE7-A273BB93C62B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB8DE012-2D16-442D-ABE7-A273BB93C62B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB8DE012-2D16-442D-ABE7-A273BB93C62B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C93A7AA-E620-48EE-B436-34EF7EAFE9AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C93A7AA-E620-48EE-B436-34EF7EAFE9AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C93A7AA-E620-48EE-B436-34EF7EAFE9AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C93A7AA-E620-48EE-B436-34EF7EAFE9AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

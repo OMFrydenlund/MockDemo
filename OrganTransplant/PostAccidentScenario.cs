@@ -53,8 +53,7 @@ namespace OrganTransplant
 
         private void PostScenarioMenu()
         {          
-            bool isInPostMenu = true;
-            while (isInPostMenu)
+            while (true)
             {
                 PostScenarioPrompt();
                 string choice = Console.ReadLine();
