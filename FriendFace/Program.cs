@@ -1,5 +1,7 @@
-﻿using FriendFace;
-App app = new App();
+﻿
+using FriendFace;
+App friendFace = new App();
+friendFace.Run();
 
 
 

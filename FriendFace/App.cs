@@ -8,69 +8,72 @@ namespace FriendFace
 {
     internal class App
     {
-        private List<ProfileModel> Users;
-        /*
-         * un/pw references:
-         * 0 TimProf - tower15
-         * 1 FourWinds - 1q2w3e
-         * 2 JimBollocks1 - row91boat
-         * 3 GrumpyEdgeLord51 - CoMpLiCaTeD1970
-         */
+        private List<Profile> Users;
         public App()
-        {           
-            Users = new List<ProfileModel>()
+        {
+            Users = new List<Profile>()
             {
-                new ProfileModel("TimProf", "Tim", 54, "I'm a full time dev and professor.", "tower15"),
-                new ProfileModel("FourWinds", "Maria", 27, "I study computer science.", "1q2w3e"),
-                new ProfileModel("JimBollocks1", "Carl", 29, "I study finance.", "row91boat"),
-                new ProfileModel("GrumpyEdgeLord51", "Eric", 45, "Part-time professor.", "CoMpLiCaTeD1970")
+                new Profile("Pea", 24, "Bahamas", "I like to run from da gus. Also sam etens, sleppens an slappens", "OhNoes21"),
+                new Profile("Nudal", 67, "Felpenus", "Who facken tuk sock AGAN dud", "ShrimpSandwich89"),
+                new Profile("Bubbos", 250, "P ketchin", "Maow", "maowmeow")
             };
+        }
+        public void Run()
+        {
+            WelcomeMessage();
+            UserLogIn();
 
-            LoginPrompt();
             Console.ReadLine();
         }
-        private void LoginPrompt()
+        private void WelcomeMessage()
         {
-            string userName;
-            string password;
-            bool isLoggingIn = true;
-
-            while (isLoggingIn)
+            Console.WriteLine("Welcome to Friend Face!\n***********************\n");
+            Thread.Sleep(1000);
+        }
+        private void UserLogIn()
+        {
+            bool profileExists = false;           
+            do
             {
-                Console.WriteLine("******FRIENDFACE******\n  Welcome to the app!\n\nType your username and password:");
-                Console.Write("Username: ");
-                userName = Console.ReadLine();
-                Console.Write("Password: ");
-                password = Console.ReadLine();
-                if (CheckLoginCredentials(userName, password))
+                var (loginName, loginPass) = GetLoginDetails();
+                profileExists = VerifyExistingProfile(loginName, loginPass);
+            } while (profileExists == false);
+
+            //welcome and activate a profile based on the details of succesful login
+        }
+        private (string, string) GetLoginDetails()
+        {
+            Console.Write("Please type in your name and password: \n> ");
+            string nameInput = Console.ReadLine();
+            Console.Write("> ");
+            string passwordInput = Console.ReadLine();
+
+            return (nameInput, passwordInput);
+        }
+        private bool VerifyExistingProfile(string nameInput, string passwordInput)
+        {
+            bool exists = false;
+            for (int i = 0; i < Users.Count; i++)
+            {
+                if (Users[i].Name == nameInput && Users[i].Password == passwordInput)
                 {
-                    Console.WriteLine($"Login successful, welcome {userName}!");
-                    //clear console and intantiate selected profile
+                    exists = true;
+                    i = Users.Count; //force loop ending            
                 }
                 else
                 {
-                    Console.WriteLine("Login failed, please try again.");
+                    i = Users.Count;
+                    LogInError();
                 }
             }
-           
+            return exists;
         }
-        private bool CheckLoginCredentials(string userName, string password)
+        private void LogInError()
         {
-            foreach (var user in Users)
-            {
-                if (user.UserName == userName)
-                {
-                    if (user.Password == password)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                }
-            }
-            return false;
+            Console.Clear();
+            Console.WriteLine("Wrong name or password...");
+            Thread.Sleep(1500);
+            Console.Clear();
         }
     }
 }
